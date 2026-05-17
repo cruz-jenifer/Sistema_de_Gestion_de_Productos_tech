@@ -1,4 +1,4 @@
-productos = []  # Lista vacía inicializada antes del bucle
+productos = []  # INICIALIZACION
 ejecutando = True
 
 while ejecutando:
@@ -12,15 +12,49 @@ while ejecutando:
     opcion = input("Seleccione una opción (1-5): ").strip()
     
     if opcion == "1":
-        pass # Lógica de agregar
+        # AGREGAR PRODUCTO
+        nombre = ""
+        while nombre == "":
+            nombre = input("Ingrese el nombre del producto: ").strip()
+            if nombre == "":
+                print("El nombre no puede estar vacío.")
+                
+        categoria = ""
+        while categoria == "":
+            categoria = input("Ingrese la categoría del producto: ").strip()
+            if categoria == "":
+                print("La categoría no puede estar vacía.")
+                
+        precio = 0
+        while precio <= 0:
+            entrada_precio = input("Ingrese el precio (solo números enteros positivos): ").strip()
+            if entrada_precio.isdigit():
+                precio = int(entrada_precio)
+                if precio <= 0:
+                    print("El precio debe ser mayor a 0.")
+            else:
+                print("Entrada no válida. Ingrese un número entero.")
+                
+        # CREACION DE DICCIONARIO
+        nuevo_producto = {
+            "nombre": nombre,
+            "categoria": categoria,
+            "precio": precio
+        }
+        
+        # AGREGAR A LISTA
+        productos.append(nuevo_producto)
+        print(f"¡Producto '{nombre}' agregado correctamente!")
     elif opcion == "2":
-        pass # Lógica de mostrar
+        pass  # MOSTRAR PRODUCTOS
     elif opcion == "3":
-        pass # Lógica de buscar
+        pass  # BUSCAR PRODUCTO
     elif opcion == "4":
-        pass # Lógica de eliminar
+        pass  # ELIMINAR PRODUCTO
     elif opcion == "5":
+        # SALIR
         print("Saliendo del sistema...")
         ejecutando = False
     else:
+        # ERROR
         print("Opción no válida.")
