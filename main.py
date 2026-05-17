@@ -60,7 +60,27 @@ while ejecutando:
                 print(f"  • Precio: ${prod['precio']}")
                 print("-" * 30)
     elif opcion == "3":
-        pass  # BUSCAR PRODUCTO
+        # BUSCAR PRODUCTO
+        if len(productos) == 0:
+            print("No hay productos para buscar.")
+        else:
+            busqueda = input("Ingrese el nombre del producto que desea buscar: ").strip().lower()
+            encontrado = False
+            
+            print("\n--- Resultados de la Búsqueda ---")
+            for i in range(len(productos)):
+                prod = productos[i]
+                # BUSCAR COINCIDENCIA
+                if busqueda in prod['nombre'].lower():
+                    print(f"ID Posición [{i + 1}]:")
+                    print(f"  • Nombre: {prod['nombre']}")
+                    print(f"  • Categoría: {prod['categoria']}")
+                    print(f"  • Precio: ${prod['precio']}")
+                    print("-" * 30)
+                    encontrado = True
+                    
+            if not encontrado:
+                print("No se encontraron resultados que coincidan con la búsqueda.")
     elif opcion == "4":
         pass  # ELIMINAR PRODUCTO
     elif opcion == "5":
