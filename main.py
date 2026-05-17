@@ -46,7 +46,19 @@ while ejecutando:
         productos.append(nuevo_producto)
         print(f"¡Producto '{nombre}' agregado correctamente!")
     elif opcion == "2":
-        pass  # MOSTRAR PRODUCTOS
+        # MOSTRAR PRODUCTOS
+        if len(productos) == 0:
+            print("No hay productos registrados en el sistema.")
+        else:
+            print("\n--- Lista de Productos Registrados ---")
+            for i in range(len(productos)):
+                prod = productos[i] 
+                print(f"Producto {i + 1}:")
+                # DETALLES DEL PRODUCTO
+                print(f"  • Nombre: {prod['nombre']}")
+                print(f"  • Categoría: {prod['categoria']}")
+                print(f"  • Precio: ${prod['precio']}")
+                print("-" * 30)
     elif opcion == "3":
         pass  # BUSCAR PRODUCTO
     elif opcion == "4":
