@@ -82,7 +82,24 @@ while ejecutando:
             if not encontrado:
                 print("No se encontraron resultados que coincidan con la búsqueda.")
     elif opcion == "4":
-        pass  # ELIMINAR PRODUCTO
+        # ELIMINAR PRODUCTO
+        if len(productos) == 0:
+            print("No hay productos registrados para eliminar.")
+        else:
+            entrada_posicion = input("Ingrese el número del producto que desea eliminar: ").strip()
+            
+            if entrada_posicion.isdigit():
+                posicion = int(entrada_posicion)
+                indice_a_eliminar = posicion - 1 
+                
+                if indice_a_eliminar >= 0 and indice_a_eliminar < len(productos):
+                    # ELIMINAR POR INDICE
+                    producto_eliminado = productos.pop(indice_a_eliminar)
+                    print(f"¡El producto '{producto_eliminado['nombre']}' ha sido eliminado con éxito!")
+                else:
+                    print("El número ingresado no corresponde a ningún producto.")
+            else:
+                print("Entrada inválida. Debe ingresar un número entero.")
     elif opcion == "5":
         # SALIR
         print("Saliendo del sistema...")
